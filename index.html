@@ -170,15 +170,15 @@ function labToRgb(l, a, b) {
   // XYZ -> linear RGB
   let r = x *  3.2406 + y * -1.5372 + z * -0.4986;
   let g = x * -0.9692 + y *  1.8758 + z *  0.0415;
-  let b = x *  0.0557 + y * -0.2040 + z *  1.0570;
+  let bl = x *  0.0557 + y * -0.2040 + z *  1.0570;
   // linear RGB -> sRGB (0-255)
   r = r > 0.0031308 ? 1.055 * Math.pow(r, 1/2.4) - 0.055 : 12.92 * r;
   g = g > 0.0031308 ? 1.055 * Math.pow(g, 1/2.4) - 0.055 : 12.92 * g;
-  b = b > 0.0031308 ? 1.055 * Math.pow(b, 1/2.4) - 0.055 : 12.92 * b;
+  bl = bl > 0.0031308 ? 1.055 * Math.pow(bl, 1/2.4) - 0.055 : 12.92 * bl;
   return [
     Math.max(0, Math.min(255, Math.round(r * 255))),
     Math.max(0, Math.min(255, Math.round(g * 255))),
-    Math.max(0, Math.min(255, Math.round(b * 255)))
+    Math.max(0, Math.min(255, Math.round(bl * 255)))
   ];
 }
 
